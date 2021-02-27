@@ -9,7 +9,11 @@ class CommandLineParser
 public:
 	CommandLineParser();
 	~CommandLineParser();
+private:
+	std::vector<std::string> arguments_;
 public:
-	static bool parse(const std::vector<std::string>&);
+	bool parse(int argc, char** argv);
+	std::vector<std::string> arguments()
+	{ return arguments_; }
 };
 #endif//__COMMANDLINEPARSER__H

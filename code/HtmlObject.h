@@ -7,29 +7,28 @@
 
 class HtmlObject
 {
-public:
-	HtmlObject();
-	~HtmlObject();
+	public:
+		HtmlObject();
+		~HtmlObject();
+	private:
+		std::vector<std::shared_ptr<HtmlObject>> objects_;
+		std::string text_;
+	public:
+		void add(const std::shared_ptr<HtmlObject>& obj)
+		{
+			objects_.push_back(obj);
+		}
+
+		virtual std::string toString();
 };
 
-class HtmlFile
+class HtmlFile : public HtmlObject
 {
 	public:
 		HtmlFile();
 		~HtmlFile();
-	private:
-		std::vector<std::shared_ptr<HtmlObject>> objects_;
 	public:
-		void addHeadLine(int, const std::string&);
-		void addItalic(const std::string&);
-		void addBold(const std::string&);
-		void addLink(const std::string&);
-		void addImage(const std::string&);
-		void addBlockquote(const std::string&);
-		void addUnorderdList(const std::string&);
-		void addOrderedList(int, const std::string&);
-		void addLine();
-		void codeBlock();
+		
 };
 
 #endif//__HTMLOBJECT__H

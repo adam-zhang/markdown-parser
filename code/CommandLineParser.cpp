@@ -1,5 +1,6 @@
 #include "CommandLineParser.h"
 #include <fstream>
+#include <iostream>
 
 using namespace std;
 
@@ -11,17 +12,22 @@ CommandLineParser::~CommandLineParser()
 {
 }
 
-static bool parse(const string& fileName);
 
-bool CommandLineParser::parse(const vector<string>& arguments)
+static void outputHelp(const std::string& command)
 {
-	for(auto argument : arguments)
-		if (!parse(argument))
-			return false;
-	return true;
+	cout << "the usage:\n"
+		"\t" + command + " <markdown file> ...\n";
 }
 
-bool parse(const string& fileName)
+bool CommandLineParser::parse(int argc, char** argv)
 {
-
+	if (argc == 1)
+	{
+		outputHelp(argv[0]);
+		return false;
+	}
+	vector<string> v;
+	for(int i = 0; i != argc; ++i)
+		v.push_back(argv[i]);
+	return true;
 }
