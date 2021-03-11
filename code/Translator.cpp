@@ -1,5 +1,4 @@
 #include "Translator.h"
-#include "HtmlBuilder.h"
 #include "Singleton.h"
 #include <fstream>
 #include <iostream>
@@ -35,12 +34,7 @@ void translate(const std::string& fileName)
 		std::cout << fileName << " is invalid file name.\n";
 		return ;
 	}
-	HtmlBuilder builder;
-	std::string line;
-	while(getline(file, line))
-		builder.add(line);
-	std::string content = builder.toString();
-	outputHtml(content, generateHtmlFileName(fileName));
+	return;
 }
 
 void Translator::translate(const std::vector<std::string>& arguments)

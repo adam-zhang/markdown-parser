@@ -4,7 +4,5 @@ set(sources
 	main.cpp
 	CommandLineParser.cpp
 	Translator.cpp
-	HtmlObject.cpp
-	HtmlBuilder.cpp
 	)
 add_executable(${PROJECT_NAME} ${sources})
