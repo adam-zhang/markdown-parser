@@ -1,18 +1,16 @@
 /********************************************************************************
-> FileName:	HtmlBuilder.cpp
+> FileName:	Tag.cpp
 > Author:	Mingping Zhang
 > Email:	mingpingzhang@163.com
-> Create Time:	Wed Jun 30 17:37:00 2021
+> Create Time:	Wed Jun 30 17:39:32 2021
 ********************************************************************************/
 
-#include "HtmlBuilder.h"
+#include "Tag.h"
 
-HtmlBuilder::HtmlBuilder(const std::string& fileName)
-	: fileName_(fileName + ".html")
+Tag::Tag()
 {
-
 }
 
-HtmlBuilder::~HtmlBuilder()
+Tag::~Tag()
 {
 }

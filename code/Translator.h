@@ -3,13 +3,22 @@
 
 #include <vector>
 #include <string>
+#include <tuple>
+#include <memory>
+
+class HtmlBuilder;
 
 class Translator
 {
 public:
-	Translator();
+	Translator(const std::string& fileName);
 	~Translator();
 public:
-	void translate(const std::vector<std::string>& );
+	bool translate();
+private:
+	std::string fileName_;
+private:
+	std::tuple<bool, std::vector<std::string>> getLines();
+	std::shared_ptr<HtmlBuilder> builder_;
 };
 #endif//__TRANSLATOR__H

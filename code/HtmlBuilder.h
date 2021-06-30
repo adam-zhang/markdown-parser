@@ -1,19 +1,21 @@
-#ifndef __HTMLBUILDER__H
-#define __HTMLBUILDER__H
+/********************************************************************************
+> FileName:	HtmlBuilder.h
+> Author:	Mingping Zhang
+> Email:	mingpingzhang@163.com
+> Create Time:	Wed Jun 30 17:37:00 2021
+********************************************************************************/
+#ifndef HTMLBUILDER_H
+#define HTMLBUILDER_H
 
 #include <string>
-#include <memory>
-#include "HtmlObject.h"
 
 class HtmlBuilder
 {
-	public:
-		HtmlBuilder();
-		~HtmlBuilder();
-	private:
-		std::shared_ptr<HtmlFile> file_;
-	public:
-		void add(const std::string& line);
-		const std::string toString();
+public:
+	HtmlBuilder(const std::string&);
+	~HtmlBuilder();
+private:
+	std::string fileName_;
+public:
 };
-#endif//__HTMLBUILDER__H
+#endif//HTMLBUILDER_H

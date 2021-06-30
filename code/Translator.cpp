@@ -1,9 +1,12 @@
 #include "Translator.h"
-#include "Singleton.h"
+#include "HtmlBuilder.h"
 #include <fstream>
 #include <iostream>
+#include <tuple>
 
-Translator::Translator()
+Translator::Translator(const std::string& fileName)
+	: fileName_(fileName)
+	  , builder_(std::make_shared<HtmlBuilder>(fileName))
 {
 }
 
@@ -37,8 +40,25 @@ void translate(const std::string& fileName)
 	return;
 }
 
-void Translator::translate(const std::vector<std::string>& arguments)
+bool Translator::translate()
 {
-	for(auto argument : arguments)
-		::translate(argument);
+	auto v = getLines();
+	if (!std::get<0>(v))
+		return false;
+	return false;
+}
+
+std::tuple<bool, std::vector<std::string>> Translator::getLines()
+{
+	std::vector<std::string> v;
+	std::ifstream file(fileName_);
+	if (!file.good())
+	{
+		std::cout << fileName_ << " is invalid file name.\n";
+		return std::make_tuple(false,v);
+	}
+	std::string line;
+	while(getline(file, line))
+		v.emplace_back(line);
+	return std::make_tuple(true, v);
 }

@@ -1,4 +1,5 @@
 #include "CommandLineParser.h"
+#include "Logger.h"
 #include <fstream>
 #include <iostream>
 
@@ -26,8 +27,7 @@ bool CommandLineParser::parse(int argc, char** argv)
 		outputHelp(argv[0]);
 		return false;
 	}
-	vector<string> v;
-	for(int i = 0; i != argc; ++i)
-		v.push_back(argv[i]);
+	for(int i = 1; i != argc; ++i)
+		arguments_.push_back(argv[i]);
 	return true;
 }
