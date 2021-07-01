@@ -7,7 +7,9 @@
 
 #include "Tag.h"
 
-Tag::Tag()
+Tag::Tag(const std::string& node, const std::string& mark)
+	: node_(node)
+	  , mark_(mark)
 {
 }
 

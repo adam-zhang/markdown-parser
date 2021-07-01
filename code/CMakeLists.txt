@@ -8,5 +8,6 @@ set(sources
 	Logger.cpp
 	HtmlBuilder.cpp
 	Tag.cpp
+	Attribute.cpp
 	)
 add_executable(${PROJECT_NAME} ${sources})
