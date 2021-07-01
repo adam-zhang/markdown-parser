@@ -6,6 +6,8 @@
 ********************************************************************************/
 
 #include "HtmlBuilder.h"
+#include "FileOperator.h"
+#include "Tag.h"
 
 HtmlBuilder::HtmlBuilder(const std::string& fileName)
 	: fileName_(fileName + ".html")
@@ -15,4 +17,10 @@ HtmlBuilder::HtmlBuilder(const std::string& fileName)
 
 HtmlBuilder::~HtmlBuilder()
 {
+}
+
+void HtmlBuilder::save()
+{
+	std::string content = "<html>" + head_->toString() + body_->toString() + "</html>";
+	FileOperator::save(fileName_, content);
 }

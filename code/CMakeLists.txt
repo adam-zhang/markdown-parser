@@ -9,5 +9,6 @@ set(sources
 	HtmlBuilder.cpp
 	Tag.cpp
 	Attribute.cpp
+	FileOperator.cpp
 	)
 add_executable(${PROJECT_NAME} ${sources})
