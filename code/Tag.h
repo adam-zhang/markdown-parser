@@ -11,7 +11,7 @@
 #include <string>
 #include <vector>
 
-class Attriubute;
+class Attribute;
 
 class Tag
 {
@@ -19,11 +19,17 @@ public:
 	Tag(const std::string& node_, const std::string& mark);
 	~Tag();
 public:
-	virtual std::string toString() {return std::string();}
+	virtual std::string toString();
 private:
 	std::string node_;
 	std::string mark_;
 	std::vector<std::shared_ptr<Tag>> children_;
-	std::vector<std::shared_ptr<Attriubute>> attributes_;
+	std::vector<std::shared_ptr<Attribute>> attributes_;
+private:
+	std::string leftPart();
+	std::string middlePart();
+	std::string rightPart();
+	std::string attributesToString();
+	std::string childrenString();
 };
 #endif//TAG_H
